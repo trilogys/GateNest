@@ -1,7 +1,7 @@
 {
   "source": "https://raw.githubusercontent.com/Wei-Shaw/sub2api/main/backend/internal/server/routes/admin.go",
-  "routes_sha256": "13f1022c5b6a4987fada591973ef3dd9f8a48b901e6338b2d5711042d7f59583",
-  "route_count": 388,
+  "routes_sha256": "c8ae37ebcf7f51310b61c68c8642fe6ef4bca64cd3d63a6761ab8330f6db8b30",
+  "route_count": 405,
   "routes": [
     {
       "method": "GET",
@@ -47,6 +47,16 @@
       "method": "POST",
       "path": "/api/v1/admin/accounts/:id/duplicate",
       "handler": "h.Admin.Account.Duplicate"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/accounts/:id/grok-media-eligibility",
+      "handler": "h.Admin.Account.GetGrokMediaEligibility"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/accounts/:id/grok-media-eligibility",
+      "handler": "h.Admin.Account.UpdateGrokMediaEligibility"
     },
     {
       "method": "GET",
@@ -302,6 +312,11 @@
       "method": "PUT",
       "path": "/api/v1/admin/accounts/upstream-billing-probe/settings",
       "handler": "h.Admin.Account.UpdateUpstreamBillingProbeSettings"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/accounts/upstream-billing-rates",
+      "handler": "h.Admin.Account.GetUpstreamBillingRates"
     },
     {
       "method": "POST",
@@ -597,6 +612,16 @@
       "method": "GET",
       "path": "/api/v1/admin/channels/pricing/sync-models",
       "handler": "h.Admin.Channel.SyncPricingModels"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/cn-providers/accounts/:id/balance",
+      "handler": "h.Admin.CNProvider.QueryBalance"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/cn-providers/accounts/:id/quota",
+      "handler": "h.Admin.CNProvider.QueryQuota"
     },
     {
       "method": "GET",
@@ -925,8 +950,8 @@
     },
     {
       "method": "GET",
-      "path": "/api/v1/admin/groups/:id/models-list-candidates",
-      "handler": "h.Admin.Group.GetModelsListCandidates"
+      "path": "/api/v1/admin/groups/:id/model-allowlist-candidates",
+      "handler": "h.Admin.Group.GetGroupModelAllowlistCandidates"
     },
     {
       "method": "DELETE",
@@ -1275,6 +1300,56 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/admin/plugins",
+      "handler": "h.Admin.Plugin.List"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/admin/plugins/:id",
+      "handler": "h.Admin.Plugin.Delete"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/plugins/:id",
+      "handler": "h.Admin.Plugin.Get"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/plugins/:id/config",
+      "handler": "h.Admin.Plugin.GetConfig"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/plugins/:id/config",
+      "handler": "h.Admin.Plugin.SaveConfig"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/plugins/:id/disable",
+      "handler": "h.Admin.Plugin.Disable"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/plugins/:id/enable",
+      "handler": "h.Admin.Plugin.Enable"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/plugins/:id/test",
+      "handler": "h.Admin.Plugin.Test"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/plugins/:id/ui-session",
+      "handler": "h.Admin.Plugin.CreateUISession"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/plugins/upload",
+      "handler": "h.Admin.Plugin.Upload"
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/admin/promo-codes",
       "handler": "h.Admin.Promo.List"
     },
@@ -1592,6 +1667,16 @@
       "method": "POST",
       "path": "/api/v1/admin/settings/email-templates/:event/:locale/restore-official",
       "handler": "h.Admin.Setting.RestoreOfficialEmailTemplate"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/settings/openai-images-oauth-unavailable-cooldown",
+      "handler": "h.Admin.Setting.GetOpenAIImagesOAuthUnavailableCooldownSettings"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/settings/openai-images-oauth-unavailable-cooldown",
+      "handler": "h.Admin.Setting.UpdateOpenAIImagesOAuthUnavailableCooldownSettings"
     },
     {
       "method": "GET",
